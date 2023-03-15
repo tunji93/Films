@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { MONGODB_URI } = require("./../config");
 
+console.log(MONGODB_URI)
 const options = {
      useNewUrlParser: true,
      useCreateIndex: true,
