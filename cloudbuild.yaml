@@ -1,0 +1,29 @@
+steps:
+- id: build-image
+  name: 'gcr.io/cloud-builders/docker'
+  
+  args: ["docker build -t gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA ."]
+
+- id: push
+  name: 'gcr.io/cloud-builders/docker'
+  
+  args: ["push","gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA"]
+
+- id: deploy
+  name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'gcloud'
+  args: ['run', 'deploy', '$_GCP_SERVICE_NAME', '--image', "gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA"]
+
+# Install dependencies
+# - name: node
+#   entrypoint: npm
+#   args: ['install']
+# Run tests
+#- name: node
+#  entrypoint: npm
+#  args: ['test']
+# Run custom commands
+#- name: node
+#  entrypoint: npm
+#  args: ['run', 'build']
+# [END cloudbuild_npm_node]
