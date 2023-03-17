@@ -1,19 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { MONGODB_URI } = require("./../config");
 
-console.log(MONGODB_URI)
+console.log(MONGODB_URI);
 const options = {
-     useNewUrlParser: true,
-     useCreateIndex: true,
-     useUnifiedTopology: true,
-     useFindAndModify: false
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
 };
 
 module.exports = async () => {
-     try {
-          await mongoose.connect(MONGODB_URI, options)
-          console.log(':::> Connected to MongoDB database')
-     } catch (error) {
-          console.log("<::: Couldn't connect to database ", error)
-     }
+  try {
+    await mongoose.connect(MONGODB_URI, options);
+    console.log(":::> Connected to MongoDB database");
+  } catch (error) {
+    console.log("<::: Couldn't connect to database ", error);
+  }
 };

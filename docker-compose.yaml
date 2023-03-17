@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  #mongodb service
+  mongo_db:
+    image: mongo:latest
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: test
+      MONGO_INITDB_ROOT_PASSWORD: test
+      MONGO_INITDB_DATABASE: test
+
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - mongo_db:/data/db
+  app:
+    depends_on:
+      - mongo_db
+    build: .
+    restart: unless-stopped
+
+    ports:
+      - 14000:3000
+    environment:
+      PORT: 3000
+      DB_HOST: mongo_db
+      DB_USER: test
+      DB_PASSWORD: test
+      DB_NAME: admin
+      MONGO_DB_PORT: 27017
+      STAR_WARS_API: https://swapi.dev/api/films
+
+
+volumes:
+  mongo_db: {}
+#mongodb://test:test@mongo_db:27017/my_db?retryWrites=true&w=majority
