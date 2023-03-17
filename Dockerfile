@@ -1,7 +1,7 @@
 FROM node:latest
-#RUN mkdir /user/src/app
-WORKDIR /user/src/app
+RUN mkdir /codematic-test-final
 COPY . .
+WORKDIR /codematic-test-final
 
 RUN npm ci
 
