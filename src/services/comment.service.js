@@ -3,7 +3,7 @@ const Film = require("../models/film.model");
 const CustomError = require("../utils/custom-error");
 
 class CommentService {
-  async create(data, filmId) {
+  async createComment(data, filmId) {
     const film = await Film.findOne({ _id: filmId });
     if (!film) throw new CustomError("Film does not exist");
     if (data.comment && data.comment.trim().length > 500)
@@ -12,7 +12,7 @@ class CommentService {
     return await new Comment(record).save();
   }
 
-  async getAll(filmId) {
+  async getCommentsByFilmID(filmId) {
     const comments = await Comment.find(
       filmId ? { film: filmId } : {},
       {
@@ -21,34 +21,9 @@ class CommentService {
       },
       { sort: { createdAt: 1 } }
     );
-    if (!comments) throw new CustomError("Comment does not exist");
+    if (!comments) throw new CustomError(`Film does not have comments`);
 
-    return  comments ;
-  }
-
-  async getOne(commentId) {
-    const comment = await Comment.findOne({ _id: commentId }, { __v: 0 });
-    if (!comment) throw new CustomError("Comment does not exist");
-
-    return comment;
-  }
-
-  async update(commentId, data) {
-    const comment = await Comment.findByIdAndUpdate(
-      { _id: commentId },
-      { $set: data },
-      { new: true }
-    );
-
-    if (!comment) throw new CustomError("Comment dosen't exist", 404);
-
-    return comment;
-  }
-
-  async delete(commentId) {
-    const comment = await Comment.findOne({ _id: commentId });
-    comment.remove();
-    return comment;
+    return comments;
   }
 }
 

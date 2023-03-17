@@ -14,7 +14,7 @@ services:
       - 27017:27017
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-      - mongo_db:/data/db
+      - newdd_db:/data/db
   app:
     depends_on:
       - mongo_db
@@ -32,7 +32,5 @@ services:
       MONGO_DB_PORT: 27017
       STAR_WARS_API: https://swapi.dev/api/films
 
-
 volumes:
-  mongo_db: {}
-#mongodb://test:test@mongo_db:27017/my_db?retryWrites=true&w=majority
+  newdd_db: {}

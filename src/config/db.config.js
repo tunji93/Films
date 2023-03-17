@@ -12,5 +12,4 @@ const {
   module.exports = {
     MONGODB_URI: `mongodb://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${MONGO_DB_PORT}/${DB_NAME}?retryWrites=true&w=majority`
   };
-
   

@@ -1,6 +1,5 @@
-# codematic
-
-This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.1.0.  
+## Description
+    An api that fetches filmms data from the star wars Api and provides end points for users to fetch films data and add comments. 
 
 ## Installation
 
@@ -17,17 +16,15 @@ This project was generated with [BàngáJS](https://bangajs.netlify.app/) v1.1.0
 
 2. Server should be running on http://localhost:2020/ by default
 
-## Code scaffolding
 
-Run `banga generate <type> <name>` to generate a new file types. Visit [here](https://bangajs.netlify.app/#banga-generate) for more info.
 
 ## Routes
 
 | Routes                                                           | Description                              | Auth roles                            |
 | -----------------------------------------------------------------|----------------------------------------- | ------------------------------------- |
-| [POST] &nbsp; /api/auth/sign-up                                  | Create a new account                     | none                                     
-| [POST] &nbsp; /api/auth/sign-in                                  | User sign in                             | none                                      
-| [POST] &nbsp; /api/auth/request-email-verification               | Resend verfication email                 | none                                     
+| [GET] &nbsp; /api/films/                                        | Fetch a list of films                    | none                                     
+| [POST] &nbsp; /api/comments/filmid                              | Add comment to film by providing comment and film id                             | none                                      
+| [GET] &nbsp; /api/comments/filmid                               | Fetch list of comments for a given film by providing filmid                  | none                                     
 | [POST] &nbsp; /api/auth/verify-email                             | Email verification                       | none                                     
 | [POST] &nbsp; /api/auth/request-password-reset                   | Sends a request password email           | none                                      
 | [POST] &nbsp; /api/auth/reset-password                           | Reset password form handler              | none                                      
