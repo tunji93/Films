@@ -1,12 +1,11 @@
 steps:
 # Install dependencies
-- name: node-installation
-  entrypoint: npm
-  args: ['install']
-# Run tests
-- name: node-test
-  entrypoint: npm
-  args: ['test']
+- name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+# Run test
+- name: "gcr.io/cloud-builders/npm"
+  args: ["run", "test"]
+
 - id: build-image
   name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash 
