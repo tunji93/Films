@@ -2,7 +2,7 @@ steps:
 - id: build-image
   name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash 
-  args: ["-c" ,"cd codematic-test-final && docker build --tag gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA ."]
+  args: ["-c" ,"docker build --tag gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA ."]
 
 # - id: push
 #   name: 'gcr.io/cloud-builders/docker'
