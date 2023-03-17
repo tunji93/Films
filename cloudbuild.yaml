@@ -1,13 +1,13 @@
 steps:
 - id: build-image
-  name: 'gcr.io/cloud-builders/docker'
+  name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: bash 
-  args: ["docker build -t gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA ."]
+  args: ["builds", "submit", "--tag", "gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA ."]
 
-- id: push
-  name: 'gcr.io/cloud-builders/docker'
+# - id: push
+#   name: 'gcr.io/cloud-builders/docker'
   
-  args: ["push","gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA"]
+#   args: ["push","gcr.io/film-app-380914/github.com/tunji93/codematic-test-final:$SHORT_SHA"]
 
 - id: deploy
   name: 'gcr.io/cloud-builders/docker'
