@@ -1,7 +1,8 @@
 FROM node:latest
-
-WORKDIR user/src/app
-COPY package*.json .
-RUN npm ci
+#RUN mkdir /user/src/app
+WORKDIR /user/src/app
 COPY . .
+
+RUN npm ci
+
 CMD ["npm", "start"]
