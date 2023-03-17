@@ -1,11 +1,10 @@
 const CommentRouter = require("./comment.route");
 
 const routes = [
-  { path: "/:filmId", method: "post" },
-  { path: "/", method: "get" },
+  { path: "/film/:filmId", method: "post" },
+  { path: "/film/:filmId", method: "get" },
   { path: "/:commentId", method: "delete" },
   { path: "/:commentId", method: "put" },
-  { path: "/:commentId", method: "get" },
 ];
 describe("Comment router test", () => {
   it.each(routes)("`$method` exists on $path", (route) => {

@@ -87,11 +87,7 @@ describe("Comment service test", () => {
       { $inc: { commentCount: 1 } }
     );
   });
-  it("should find comment by commentId", async () => {
-    mockingoose(CommentModel).toReturn(comments_mock[0], "findOne");
-    const comment = await CommentService.getOne(comments_mock[0]._id);
-    expect(serializeObject(comment)).toEqual(serializeObject(comments_mock[0]));
-  });
+  
   it("should get all comments", async () => {
     mockingoose(CommentModel).toReturn(comments_mock, "find");
     const comments = await CommentService.getAll();

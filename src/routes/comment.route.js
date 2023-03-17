@@ -1,11 +1,10 @@
 const router = require("express").Router();
 const commentCtrl = require("./../controllers/comment.controller");
 
-router.post("/film/:filmId", commentCtrl.createComment);
-router.get("/film/:filmId", commentCtrl.getCommentByFilmID);
-
-router.put("/:commentId", commentCtrl.updateComment )
-router.delete("/:commentId", commentCtrl.deleteComment)
+router.post("/film/:filmId", commentCtrl.create);
+router.get("/film/:filmId", commentCtrl.getAll);
+router.put("/:commentId", commentCtrl.update )
+router.delete("/:commentId", commentCtrl.delete)
 
 
 

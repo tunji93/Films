@@ -3,13 +3,13 @@ const response = require("../utils/response");
 
 class FilmContoller {
   
-  async getAllFilms(req, res) {
-    const result = await FilmServ.getAllFilms();
+  async getAll(req, res) {
+    const result = await FilmServ.getAll();
     res.status(200).send(response("All films", result));
   }
 
-  async getOneFilm(req, res) {
-    const result = await FilmServ.getOneFilm(req.params.filmId);
+  async getOne(req, res) {
+    const result = await FilmServ.getOne(req.params.filmId);
     res.status(200).send(response("Film data", result));
   }
 }

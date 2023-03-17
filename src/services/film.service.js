@@ -12,7 +12,7 @@ class FilmService {
     });
   }
 
-  async getAllFilms() {
+  async getAll() {
     const backfilled = await Film.find({ backfill: true }, { __v: 0 });
 
     if (!backfilled.length) {
@@ -26,7 +26,7 @@ class FilmService {
     );
   }
 
-  async getOneFilm(filmId) {
+  async getOne(filmId) {
     const film = await Film.findOne({ _id: filmId }, { __v: 0 });
     if (!film) throw new CustomError("Film does not exist");
 

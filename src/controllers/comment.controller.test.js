@@ -55,19 +55,4 @@ describe("CommentContoller", () => {
       );
     });
   });
-
-  describe("getOne", () => {
-    it("should return a comment with status 200", async () => {
-      const mockComment = { text: "test comment" };
-      CommentServ.getOne.mockResolvedValue(mockComment);
-
-      req.params = { commentId: "123" };
-      await CommentContoller.getOne(req, res);
-
-      expect(res.status).toHaveBeenCalledWith(200);
-      expect(res.send).toHaveBeenCalledWith(
-        response("Comment data", mockComment)
-      );
-    });
-  });
 });

@@ -2,9 +2,7 @@ const FilmRouter = require("./film.route");
 
 const routes = [
   { path: "/", method: "get" },
-  { path: "/", method: "post" },
-  { path: "/:filmId", method: "delete" },
-  { path: "/:filmId", method: "put" },
+
   { path: "/:filmId", method: "get" },
 ];
 describe("Film router test", () => {

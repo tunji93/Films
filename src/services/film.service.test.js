@@ -28,17 +28,7 @@ const films_mock = [
 
 const serializeObject = (data) => JSON.parse(JSON.stringify(data));
 describe("Film service test", () => {
-  it("should creat film entry", async () => {
-    const newFilmMock = {
-      title: "The God Father",
-      releaseDate: new Date(),
-      commentCount: 0,
-    };
-    mockingoose(FilmModel).toReturn(newFilmMock, "save");
-    const newFilm = await FilmService.create(newFilmMock);
-    expect(newFilm.title).toEqual("The God Father");
-    expect(serializeObject(newFilm)._id).not.toBeNull();
-  });
+  
   it("should find film by filmId", async () => {
     mockingoose(FilmModel).toReturn(films_mock[0], "findOne");
     const film = await FilmService.getOne(films_mock[0]._id);
