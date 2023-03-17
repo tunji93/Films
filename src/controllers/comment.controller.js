@@ -16,9 +16,18 @@ class CommentContoller {
     res.status(200).send(response("All comments", result));
   }
 
-  
+  async updateComment(req, res) {
+    const result = await CommentServ.updateComment(
+      req.params.commentId,
+      req.body
+    );
+    res.status(200).send(response("Comment updated", result));
+  }
 
-  
+  async deleteComment(req, res) {
+    const result = await CommentServ.deleteComment(req.params.commentId);
+    res.status(200).send(response("Comment deleted", result));
+  }
 }
 
 module.exports = new CommentContoller();
